@@ -59,8 +59,6 @@ DefaultSslPoliciesRestStub::AggregatedListSslPolicies(
       {"max_results", std::to_string(request.max_results())});
   query_params.push_back({"order_by", request.order_by()});
   query_params.push_back({"page_token", request.page_token()});
-  query_params.push_back({"return_partial_success",
-                          (request.return_partial_success() ? "1" : "0")});
   query_params.push_back(
       {"service_project_number", request.service_project_number()});
   query_params =
@@ -147,6 +145,27 @@ DefaultSslPoliciesRestStub::GetSslPolicy(
       std::move(query_params));
 }
 
+StatusOr<google::cloud::cpp::compute::v1::Policy>
+DefaultSslPoliciesRestStub::GetIamPolicy(
+    google::cloud::rest_internal::RestContext& rest_context,
+    Options const& options,
+    google::cloud::cpp::compute::ssl_policies::v1::GetIamPolicyRequest const&
+        request) {
+  std::vector<std::pair<std::string, std::string>> query_params;
+  query_params.push_back(
+      {"options_requested_policy_version",
+       std::to_string(request.options_requested_policy_version())});
+  query_params =
+      rest_internal::TrimEmptyQueryParameters(std::move(query_params));
+  return rest_internal::Get<google::cloud::cpp::compute::v1::Policy>(
+      *service_, rest_context, request, false,
+      absl::StrCat("/", "compute", "/",
+                   rest_internal::DetermineApiVersion("v1", options), "/",
+                   "projects", "/", request.project(), "/", "global", "/",
+                   "sslPolicies", "/", request.resource(), "/", "getIamPolicy"),
+      std::move(query_params));
+}
+
 future<StatusOr<google::cloud::cpp::compute::v1::Operation>>
 DefaultSslPoliciesRestStub::AsyncInsertSslPolicy(
     CompletionQueue& cq,
@@ -214,8 +233,6 @@ DefaultSslPoliciesRestStub::ListSslPolicies(
       {"max_results", std::to_string(request.max_results())});
   query_params.push_back({"order_by", request.order_by()});
   query_params.push_back({"page_token", request.page_token()});
-  query_params.push_back({"return_partial_success",
-                          (request.return_partial_success() ? "1" : "0")});
   query_params =
       rest_internal::TrimEmptyQueryParameters(std::move(query_params));
   return rest_internal::Get<google::cloud::cpp::compute::v1::SslPoliciesList>(
@@ -240,8 +257,6 @@ DefaultSslPoliciesRestStub::ListAvailableFeatures(
       {"max_results", std::to_string(request.max_results())});
   query_params.push_back({"order_by", request.order_by()});
   query_params.push_back({"page_token", request.page_token()});
-  query_params.push_back({"return_partial_success",
-                          (request.return_partial_success() ? "1" : "0")});
   query_params =
       rest_internal::TrimEmptyQueryParameters(std::move(query_params));
   return rest_internal::Get<google::cloud::cpp::compute::v1::
@@ -307,6 +322,42 @@ DefaultSslPoliciesRestStub::PatchSslPolicy(
                    rest_internal::DetermineApiVersion("v1", options), "/",
                    "projects", "/", request.project(), "/", "global", "/",
                    "sslPolicies", "/", request.ssl_policy()),
+      std::move(query_params));
+}
+
+StatusOr<google::cloud::cpp::compute::v1::Policy>
+DefaultSslPoliciesRestStub::SetIamPolicy(
+    google::cloud::rest_internal::RestContext& rest_context,
+    Options const& options,
+    google::cloud::cpp::compute::ssl_policies::v1::SetIamPolicyRequest const&
+        request) {
+  std::vector<std::pair<std::string, std::string>> query_params;
+  return rest_internal::Post<google::cloud::cpp::compute::v1::Policy>(
+      *service_, rest_context, request.global_set_policy_request_resource(),
+      false,
+      absl::StrCat("/", "compute", "/",
+                   rest_internal::DetermineApiVersion("v1", options), "/",
+                   "projects", "/", request.project(), "/", "global", "/",
+                   "sslPolicies", "/", request.resource(), "/", "setIamPolicy"),
+      std::move(query_params));
+}
+
+StatusOr<google::cloud::cpp::compute::v1::TestPermissionsResponse>
+DefaultSslPoliciesRestStub::TestIamPermissions(
+    google::cloud::rest_internal::RestContext& rest_context,
+    Options const& options,
+    google::cloud::cpp::compute::ssl_policies::v1::
+        TestIamPermissionsRequest const& request) {
+  std::vector<std::pair<std::string, std::string>> query_params;
+  return rest_internal::Post<
+      google::cloud::cpp::compute::v1::TestPermissionsResponse>(
+      *service_, rest_context, request.test_permissions_request_resource(),
+      false,
+      absl::StrCat("/", "compute", "/",
+                   rest_internal::DetermineApiVersion("v1", options), "/",
+                   "projects", "/", request.project(), "/", "global", "/",
+                   "sslPolicies", "/", request.resource(), "/",
+                   "testIamPermissions"),
       std::move(query_params));
 }
 

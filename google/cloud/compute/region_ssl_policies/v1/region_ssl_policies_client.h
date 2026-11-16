@@ -38,6 +38,8 @@ GOOGLE_CLOUD_CPP_INLINE_NAMESPACE_BEGIN
 /// Service for the regionSslPolicies resource.
 /// https://cloud.google.com/compute/docs/reference/rest/v1/regionSslPolicies
 ///
+/// This client uses RegionSslPolicies version 2026-11-01.
+///
 /// @par Equality
 ///
 /// Instances of this class created via copy-construction or copy-assignment
@@ -119,7 +121,7 @@ class RegionSslPoliciesClient {
   /// [`future`]: @ref google::cloud::future
   /// [`StatusOr`]: @ref google::cloud::StatusOr
   /// [`Status`]: @ref google::cloud::Status
-  /// [google.cloud.cpp.compute.region_ssl_policies.v1.DeleteSslPolicyRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L113}
+  /// [google.cloud.cpp.compute.region_ssl_policies.v1.DeleteSslPolicyRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L153}
   ///
   // clang-format on
   future<StatusOr<google::cloud::cpp::compute::v1::Operation>> DeleteSslPolicy(
@@ -174,7 +176,7 @@ class RegionSslPoliciesClient {
   /// [`future`]: @ref google::cloud::future
   /// [`StatusOr`]: @ref google::cloud::StatusOr
   /// [`Status`]: @ref google::cloud::Status
-  /// [google.cloud.cpp.compute.region_ssl_policies.v1.DeleteSslPolicyRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L113}
+  /// [google.cloud.cpp.compute.region_ssl_policies.v1.DeleteSslPolicyRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L153}
   ///
   // clang-format on
   future<StatusOr<google::cloud::cpp::compute::v1::Operation>> DeleteSslPolicy(
@@ -234,7 +236,7 @@ class RegionSslPoliciesClient {
   /// [`future`]: @ref google::cloud::future
   /// [`StatusOr`]: @ref google::cloud::StatusOr
   /// [`Status`]: @ref google::cloud::Status
-  /// [google.cloud.cpp.compute.region_ssl_policies.v1.GetSslPolicyRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L150}
+  /// [google.cloud.cpp.compute.region_ssl_policies.v1.GetSslPolicyRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L209}
   /// [google.cloud.cpp.compute.v1.SslPolicy]: @cloud_cpp_reference_link{google/cloud/compute/v1/internal/common_159.proto#L165}
   ///
   // clang-format on
@@ -266,13 +268,77 @@ class RegionSslPoliciesClient {
   /// [`future`]: @ref google::cloud::future
   /// [`StatusOr`]: @ref google::cloud::StatusOr
   /// [`Status`]: @ref google::cloud::Status
-  /// [google.cloud.cpp.compute.region_ssl_policies.v1.GetSslPolicyRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L150}
+  /// [google.cloud.cpp.compute.region_ssl_policies.v1.GetSslPolicyRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L209}
   /// [google.cloud.cpp.compute.v1.SslPolicy]: @cloud_cpp_reference_link{google/cloud/compute/v1/internal/common_159.proto#L165}
   ///
   // clang-format on
   StatusOr<google::cloud::cpp::compute::v1::SslPolicy> GetSslPolicy(
       google::cloud::cpp::compute::region_ssl_policies::v1::
           GetSslPolicyRequest const& request,
+      Options opts = {});
+
+  // clang-format off
+  ///
+  /// Gets the access control policy for a resource. May be empty if no such
+  /// policy or resource exists.
+  /// https://cloud.google.com/compute/docs/reference/rest/v1/regionSslPolicies/getIamPolicy
+  ///
+  /// @param project  Project ID for this request.
+  /// @param region  The name of the region for this request.
+  /// @param resource  Name or id of the resource for this request.
+  /// @param opts Optional. Override the class-level options, such as retry and
+  ///     backoff policies.
+  /// @return the result of the RPC. The response message type
+  ///     ([google.cloud.cpp.compute.v1.Policy])
+  ///     is mapped to a C++ class using the [Protobuf mapping rules].
+  ///     If the request fails, the [`StatusOr`] contains the error details.
+  ///
+  /// [Protobuf mapping rules]: https://protobuf.dev/reference/cpp/cpp-generated/
+  /// [input iterator requirements]: https://en.cppreference.com/w/cpp/named_req/InputIterator
+  /// [`std::string`]: https://en.cppreference.com/w/cpp/string/basic_string
+  /// [`future`]: @ref google::cloud::future
+  /// [`StatusOr`]: @ref google::cloud::StatusOr
+  /// [`Status`]: @ref google::cloud::Status
+  /// [google.cloud.cpp.compute.region_ssl_policies.v1.GetIamPolicyRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L190}
+  /// [google.cloud.cpp.compute.v1.Policy]: @cloud_cpp_reference_link{google/cloud/compute/v1/internal/common_010.proto#L317}
+  ///
+  // clang-format on
+  StatusOr<google::cloud::cpp::compute::v1::Policy> GetIamPolicy(
+      std::string const& project, std::string const& region,
+      std::string const& resource, Options opts = {});
+
+  // clang-format off
+  ///
+  /// Gets the access control policy for a resource. May be empty if no such
+  /// policy or resource exists.
+  /// https://cloud.google.com/compute/docs/reference/rest/v1/regionSslPolicies/getIamPolicy
+  ///
+  /// @param request Unary RPCs, such as the one wrapped by this
+  ///     function, receive a single `request` proto message which includes all
+  ///     the inputs for the RPC. In this case, the proto message is a
+  ///     [google.cloud.cpp.compute.region_ssl_policies.v1.GetIamPolicyRequest].
+  ///     Proto messages are converted to C++ classes by Protobuf, using the
+  ///     [Protobuf mapping rules].
+  /// @param opts Optional. Override the class-level options, such as retry and
+  ///     backoff policies.
+  /// @return the result of the RPC. The response message type
+  ///     ([google.cloud.cpp.compute.v1.Policy])
+  ///     is mapped to a C++ class using the [Protobuf mapping rules].
+  ///     If the request fails, the [`StatusOr`] contains the error details.
+  ///
+  /// [Protobuf mapping rules]: https://protobuf.dev/reference/cpp/cpp-generated/
+  /// [input iterator requirements]: https://en.cppreference.com/w/cpp/named_req/InputIterator
+  /// [`std::string`]: https://en.cppreference.com/w/cpp/string/basic_string
+  /// [`future`]: @ref google::cloud::future
+  /// [`StatusOr`]: @ref google::cloud::StatusOr
+  /// [`Status`]: @ref google::cloud::Status
+  /// [google.cloud.cpp.compute.region_ssl_policies.v1.GetIamPolicyRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L190}
+  /// [google.cloud.cpp.compute.v1.Policy]: @cloud_cpp_reference_link{google/cloud/compute/v1/internal/common_010.proto#L317}
+  ///
+  // clang-format on
+  StatusOr<google::cloud::cpp::compute::v1::Policy> GetIamPolicy(
+      google::cloud::cpp::compute::region_ssl_policies::v1::
+          GetIamPolicyRequest const& request,
       Options opts = {});
 
   // clang-format off
@@ -304,7 +370,7 @@ class RegionSslPoliciesClient {
   /// [`future`]: @ref google::cloud::future
   /// [`StatusOr`]: @ref google::cloud::StatusOr
   /// [`Status`]: @ref google::cloud::Status
-  /// [google.cloud.cpp.compute.region_ssl_policies.v1.InsertSslPolicyRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L166}
+  /// [google.cloud.cpp.compute.region_ssl_policies.v1.InsertSslPolicyRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L225}
   ///
   // clang-format on
   future<StatusOr<google::cloud::cpp::compute::v1::Operation>> InsertSslPolicy(
@@ -360,7 +426,7 @@ class RegionSslPoliciesClient {
   /// [`future`]: @ref google::cloud::future
   /// [`StatusOr`]: @ref google::cloud::StatusOr
   /// [`Status`]: @ref google::cloud::Status
-  /// [google.cloud.cpp.compute.region_ssl_policies.v1.InsertSslPolicyRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L166}
+  /// [google.cloud.cpp.compute.region_ssl_policies.v1.InsertSslPolicyRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L225}
   ///
   // clang-format on
   future<StatusOr<google::cloud::cpp::compute::v1::Operation>> InsertSslPolicy(
@@ -428,7 +494,7 @@ class RegionSslPoliciesClient {
   /// [`future`]: @ref google::cloud::future
   /// [`StatusOr`]: @ref google::cloud::StatusOr
   /// [`Status`]: @ref google::cloud::Status
-  /// [google.cloud.cpp.compute.region_ssl_policies.v1.ListRegionSslPoliciesRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L307}
+  /// [google.cloud.cpp.compute.region_ssl_policies.v1.ListRegionSslPoliciesRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L359}
   /// [google.cloud.cpp.compute.v1.SslPolicy]: @cloud_cpp_reference_link{google/cloud/compute/v1/internal/common_159.proto#L165}
   ///
   // clang-format on
@@ -469,7 +535,7 @@ class RegionSslPoliciesClient {
   /// [`future`]: @ref google::cloud::future
   /// [`StatusOr`]: @ref google::cloud::StatusOr
   /// [`Status`]: @ref google::cloud::Status
-  /// [google.cloud.cpp.compute.region_ssl_policies.v1.ListRegionSslPoliciesRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L307}
+  /// [google.cloud.cpp.compute.region_ssl_policies.v1.ListRegionSslPoliciesRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L359}
   /// [google.cloud.cpp.compute.v1.SslPolicy]: @cloud_cpp_reference_link{google/cloud/compute/v1/internal/common_159.proto#L165}
   ///
   // clang-format on
@@ -499,7 +565,7 @@ class RegionSslPoliciesClient {
   /// [`future`]: @ref google::cloud::future
   /// [`StatusOr`]: @ref google::cloud::StatusOr
   /// [`Status`]: @ref google::cloud::Status
-  /// [google.cloud.cpp.compute.region_ssl_policies.v1.ListAvailableFeaturesRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L202}
+  /// [google.cloud.cpp.compute.region_ssl_policies.v1.ListAvailableFeaturesRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L261}
   /// [google.cloud.cpp.compute.v1.SslPoliciesListAvailableFeaturesResponse]: @cloud_cpp_reference_link{google/cloud/compute/v1/internal/common_159.proto#L155}
   ///
   // clang-format on
@@ -533,7 +599,7 @@ class RegionSslPoliciesClient {
   /// [`future`]: @ref google::cloud::future
   /// [`StatusOr`]: @ref google::cloud::StatusOr
   /// [`Status`]: @ref google::cloud::Status
-  /// [google.cloud.cpp.compute.region_ssl_policies.v1.ListAvailableFeaturesRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L202}
+  /// [google.cloud.cpp.compute.region_ssl_policies.v1.ListAvailableFeaturesRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L261}
   /// [google.cloud.cpp.compute.v1.SslPoliciesListAvailableFeaturesResponse]: @cloud_cpp_reference_link{google/cloud/compute/v1/internal/common_159.proto#L155}
   ///
   // clang-format on
@@ -573,7 +639,7 @@ class RegionSslPoliciesClient {
   /// [`future`]: @ref google::cloud::future
   /// [`StatusOr`]: @ref google::cloud::StatusOr
   /// [`Status`]: @ref google::cloud::Status
-  /// [google.cloud.cpp.compute.region_ssl_policies.v1.PatchSslPolicyRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L412}
+  /// [google.cloud.cpp.compute.region_ssl_policies.v1.PatchSslPolicyRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L457}
   ///
   // clang-format on
   future<StatusOr<google::cloud::cpp::compute::v1::Operation>> PatchSslPolicy(
@@ -630,7 +696,7 @@ class RegionSslPoliciesClient {
   /// [`future`]: @ref google::cloud::future
   /// [`StatusOr`]: @ref google::cloud::StatusOr
   /// [`Status`]: @ref google::cloud::Status
-  /// [google.cloud.cpp.compute.region_ssl_policies.v1.PatchSslPolicyRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L412}
+  /// [google.cloud.cpp.compute.region_ssl_policies.v1.PatchSslPolicyRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L457}
   ///
   // clang-format on
   future<StatusOr<google::cloud::cpp::compute::v1::Operation>> PatchSslPolicy(
@@ -667,6 +733,141 @@ class RegionSslPoliciesClient {
   future<StatusOr<google::cloud::cpp::compute::v1::Operation>> PatchSslPolicy(
       google::cloud::cpp::compute::v1::Operation const& operation,
       Options opts = {});
+
+  // clang-format off
+  ///
+  /// Sets the access control policy on the specified resource.
+  /// Replaces any existing policy.
+  /// https://cloud.google.com/compute/docs/reference/rest/v1/regionSslPolicies/setIamPolicy
+  ///
+  /// @param project  Project ID for this request.
+  /// @param region  The name of the region for this request.
+  /// @param resource  Name or id of the resource for this request.
+  /// @param region_set_policy_request_resource  The RegionSetPolicyRequest for this request.
+  /// @param opts Optional. Override the class-level options, such as retry and
+  ///     backoff policies.
+  /// @return the result of the RPC. The response message type
+  ///     ([google.cloud.cpp.compute.v1.Policy])
+  ///     is mapped to a C++ class using the [Protobuf mapping rules].
+  ///     If the request fails, the [`StatusOr`] contains the error details.
+  ///
+  /// [Protobuf mapping rules]: https://protobuf.dev/reference/cpp/cpp-generated/
+  /// [input iterator requirements]: https://en.cppreference.com/w/cpp/named_req/InputIterator
+  /// [`std::string`]: https://en.cppreference.com/w/cpp/string/basic_string
+  /// [`future`]: @ref google::cloud::future
+  /// [`StatusOr`]: @ref google::cloud::StatusOr
+  /// [`Status`]: @ref google::cloud::Status
+  /// [google.cloud.cpp.compute.region_ssl_policies.v1.SetIamPolicyRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L498}
+  /// [google.cloud.cpp.compute.v1.Policy]: @cloud_cpp_reference_link{google/cloud/compute/v1/internal/common_010.proto#L317}
+  ///
+  // clang-format on
+  StatusOr<google::cloud::cpp::compute::v1::Policy> SetIamPolicy(
+      std::string const& project, std::string const& region,
+      std::string const& resource,
+      google::cloud::cpp::compute::v1::RegionSetPolicyRequest const&
+          region_set_policy_request_resource,
+      Options opts = {});
+
+  // clang-format off
+  ///
+  /// Sets the access control policy on the specified resource.
+  /// Replaces any existing policy.
+  /// https://cloud.google.com/compute/docs/reference/rest/v1/regionSslPolicies/setIamPolicy
+  ///
+  /// @param request Unary RPCs, such as the one wrapped by this
+  ///     function, receive a single `request` proto message which includes all
+  ///     the inputs for the RPC. In this case, the proto message is a
+  ///     [google.cloud.cpp.compute.region_ssl_policies.v1.SetIamPolicyRequest].
+  ///     Proto messages are converted to C++ classes by Protobuf, using the
+  ///     [Protobuf mapping rules].
+  /// @param opts Optional. Override the class-level options, such as retry and
+  ///     backoff policies.
+  /// @return the result of the RPC. The response message type
+  ///     ([google.cloud.cpp.compute.v1.Policy])
+  ///     is mapped to a C++ class using the [Protobuf mapping rules].
+  ///     If the request fails, the [`StatusOr`] contains the error details.
+  ///
+  /// [Protobuf mapping rules]: https://protobuf.dev/reference/cpp/cpp-generated/
+  /// [input iterator requirements]: https://en.cppreference.com/w/cpp/named_req/InputIterator
+  /// [`std::string`]: https://en.cppreference.com/w/cpp/string/basic_string
+  /// [`future`]: @ref google::cloud::future
+  /// [`StatusOr`]: @ref google::cloud::StatusOr
+  /// [`Status`]: @ref google::cloud::Status
+  /// [google.cloud.cpp.compute.region_ssl_policies.v1.SetIamPolicyRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L498}
+  /// [google.cloud.cpp.compute.v1.Policy]: @cloud_cpp_reference_link{google/cloud/compute/v1/internal/common_010.proto#L317}
+  ///
+  // clang-format on
+  StatusOr<google::cloud::cpp::compute::v1::Policy> SetIamPolicy(
+      google::cloud::cpp::compute::region_ssl_policies::v1::
+          SetIamPolicyRequest const& request,
+      Options opts = {});
+
+  // clang-format off
+  ///
+  /// Returns permissions that a caller has on the specified resource.
+  /// https://cloud.google.com/compute/docs/reference/rest/v1/regionSslPolicies/testIamPermissions
+  ///
+  /// @param project  Project ID for this request.
+  /// @param region  The name of the region for this request.
+  /// @param resource  Name or id of the resource for this request.
+  /// @param test_permissions_request_resource  The TestPermissionsRequest for this request.
+  /// @param opts Optional. Override the class-level options, such as retry and
+  ///     backoff policies.
+  /// @return the result of the RPC. The response message type
+  ///     ([google.cloud.cpp.compute.v1.TestPermissionsResponse])
+  ///     is mapped to a C++ class using the [Protobuf mapping rules].
+  ///     If the request fails, the [`StatusOr`] contains the error details.
+  ///
+  /// [Protobuf mapping rules]: https://protobuf.dev/reference/cpp/cpp-generated/
+  /// [input iterator requirements]: https://en.cppreference.com/w/cpp/named_req/InputIterator
+  /// [`std::string`]: https://en.cppreference.com/w/cpp/string/basic_string
+  /// [`future`]: @ref google::cloud::future
+  /// [`StatusOr`]: @ref google::cloud::StatusOr
+  /// [`Status`]: @ref google::cloud::Status
+  /// [google.cloud.cpp.compute.region_ssl_policies.v1.TestIamPermissionsRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L518}
+  /// [google.cloud.cpp.compute.v1.TestPermissionsResponse]: @cloud_cpp_reference_link{google/cloud/compute/v1/internal/common_177.proto#L30}
+  ///
+  // clang-format on
+  StatusOr<google::cloud::cpp::compute::v1::TestPermissionsResponse>
+  TestIamPermissions(
+      std::string const& project, std::string const& region,
+      std::string const& resource,
+      google::cloud::cpp::compute::v1::TestPermissionsRequest const&
+          test_permissions_request_resource,
+      Options opts = {});
+
+  // clang-format off
+  ///
+  /// Returns permissions that a caller has on the specified resource.
+  /// https://cloud.google.com/compute/docs/reference/rest/v1/regionSslPolicies/testIamPermissions
+  ///
+  /// @param request Unary RPCs, such as the one wrapped by this
+  ///     function, receive a single `request` proto message which includes all
+  ///     the inputs for the RPC. In this case, the proto message is a
+  ///     [google.cloud.cpp.compute.region_ssl_policies.v1.TestIamPermissionsRequest].
+  ///     Proto messages are converted to C++ classes by Protobuf, using the
+  ///     [Protobuf mapping rules].
+  /// @param opts Optional. Override the class-level options, such as retry and
+  ///     backoff policies.
+  /// @return the result of the RPC. The response message type
+  ///     ([google.cloud.cpp.compute.v1.TestPermissionsResponse])
+  ///     is mapped to a C++ class using the [Protobuf mapping rules].
+  ///     If the request fails, the [`StatusOr`] contains the error details.
+  ///
+  /// [Protobuf mapping rules]: https://protobuf.dev/reference/cpp/cpp-generated/
+  /// [input iterator requirements]: https://en.cppreference.com/w/cpp/named_req/InputIterator
+  /// [`std::string`]: https://en.cppreference.com/w/cpp/string/basic_string
+  /// [`future`]: @ref google::cloud::future
+  /// [`StatusOr`]: @ref google::cloud::StatusOr
+  /// [`Status`]: @ref google::cloud::Status
+  /// [google.cloud.cpp.compute.region_ssl_policies.v1.TestIamPermissionsRequest]: @cloud_cpp_reference_link{google/cloud/compute/region_ssl_policies/v1/region_ssl_policies.proto#L518}
+  /// [google.cloud.cpp.compute.v1.TestPermissionsResponse]: @cloud_cpp_reference_link{google/cloud/compute/v1/internal/common_177.proto#L30}
+  ///
+  // clang-format on
+  StatusOr<google::cloud::cpp::compute::v1::TestPermissionsResponse>
+  TestIamPermissions(google::cloud::cpp::compute::region_ssl_policies::v1::
+                         TestIamPermissionsRequest const& request,
+                     Options opts = {});
 
  private:
   std::shared_ptr<RegionSslPoliciesConnection> connection_;
